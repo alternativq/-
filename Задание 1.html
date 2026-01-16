@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сервис интеграции «Персонал» и «Сервисные работы»</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .role-badge {
+            background-color: var(--secondary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        nav {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin: 20px 0;
+            padding: 15px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+        
+        .tab:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .tab.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-bg);
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+        
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: white;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+        
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-new {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .status-in-work {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .status-done {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .status-closed {
+            background-color: #f5f5f5;
+            color: #616161;
+        }
+        
+        .status-cancelled {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-bg);
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-text);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--light-text);
+            font-size: 1rem;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .filter-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .specialist-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .specialist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid var(--light-bg);
+            border-radius: var(--border-radius);
+            transition: all 0.3s;
+        }
+        
+        .specialist-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .specialist-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .specialist-skills {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--light-bg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-cogs"></i>
+                <h1>Сервис интеграции «Персонал» и «Сервисные работы»</h1>
+            </div>
+            <div class="user-info">
+                <div class="role-badge" id="userRole">Управляющий магазином</div>
+                <div>Титов Д.А.</div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <div class="nav-tabs">
+                <div class="tab active" data-tab="tasks">Задания</div>
+                <div class="tab" data-tab="specialists">Специалисты</div>
+                <div class="tab" data-tab="recruitment">Подбор персонала</div>
+                <div class="tab" data-tab="reports">Отчеты</div>
+            </div>
+        </nav>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="newTasksCount">12</div>
+                <div class="stat-label">Новые задания</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="inWorkTasksCount">8</div>
+                <div class="stat-label">В работе</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="doneTasksCount">24</div>
+                <div class="stat-label">Выполнены</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="recruitmentCount">5</div>
+                <div class="stat-label">Заявки на подбор</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Список заданий</h2>
+                        <button class="btn btn-primary" id="createTaskBtn">
+                            <i class="fas fa-plus"></i> Создать задание
+                        </button>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-item">
+                            <label>Статус</label>
+                            <select id="statusFilter">
+                                <option value="all">Все статусы</option>
+                                <option value="new">Новый</option>
+                                <option value="in-work">В работе</option>
+                                <option value="done">Выполнен</option>
+                                <option value="closed">Закрыт</option>
+                                <option value="cancelled">Отменён</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label>Дата с</label>
+                            <input type="date" id="dateFromFilter">
+                        </div>
+                        <div class="filter-item">
+                            <label>Дата по</label>
+                            <input type="date" id="dateToFilter">
+                        </div>
+                    </div>
+                    
+                    <table id="tasksTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Наименование</th>
+                                <th>Дата создания</th>
+                                <th>Статус</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Данные будут заполняться через JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Активные задания</h2>
+                    </div>
+                    <div id="activeTasks">
+                        <!-- Активные задания будут отображаться здесь -->
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Заявки на подбор</h2>
+                    </div>
+                    <div id="recruitmentRequests">
+                        <!-- Заявки на подбор будут отображаться здесь -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно создания задания -->
+    <div class="modal" id="createTaskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Создание нового задания</h2>
+                <button class="close-modal" id="closeCreateTaskModal">&times;</button>
+            </div>
+            <form id="createTaskForm">
+                <div class="form-group">
+                    <label for="taskName">Наименование работ *</label>
+                    <input type="text" id="taskName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDescription">Описание работ</label>
+                    <textarea id="taskDescription" placeholder="Подробное описание работ, которые необходимо выполнить..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDate">Дата выполнения *</label>
+                    <input type="date" id="taskDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskRequirements">Требования к исполнителям</label>
+                    <textarea id="taskRequirements" placeholder="Квалификация, опыт, навыки..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskPriority">Приоритет</label>
+                    <select id="taskPriority">
+                        <option value="low">Низкий</option>
+                        <option value="medium" selected>Средний</option>
+                        <option value="high">Высокий</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-save"></i> Сохранить задание
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Модальное окно назначения специалистов -->
+    <div class="modal" id="assignSpecialistsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Назначение специалистов</h2>
+                <button class="close-modal" id="closeAssignModal">&times;</button>
+            </div>
+            <div id="taskInfo"></div>
+            
+            <div class="form-group">
+                <label>Выберите специалистов для выполнения задания:</label>
+                <div class="specialist-list" id="specialistsList">
+                    <!-- Список специалистов будет заполняться через JavaScript -->
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-success" id="assignBtn" style="width: 100%;">
+                    <i class="fas fa-user-check"></i> Назначить выбранных специалистов
+                </button>
+                <button class="btn btn-warning" id="createRecruitmentBtn" style="width: 100%; margin-top: 10px;">
+                    <i class="fas fa-user-plus"></i> Создать заявку на подбор
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно заявки на подбор -->
+    <div class="modal" id="recruitmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Заявка на подбор специалиста</h2>
+                <button class="close-modal" id="closeRecruitmentModal">&times;</button>
+            </div>
+            <form id="recruitmentForm">
+                <div class="form-group">
+                    <label for="recruitmentPosition">Должность/Специальность *</label>
+                    <input type="text" id="recruitmentPosition" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recruitmentRequirements">Требования к кандидату *</label>
+                    <textarea id="recruitmentRequirements" required placeholder="Образование, опыт, навыки..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recruitmentDeadline">Срок подбора *</label>
+                    <input type="date" id="recruitmentDeadline" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recruitmentQuantity">Количество человек</label>
+                    <input type="number" id="recruitmentQuantity" value="1" min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="recruitmentComments">Комментарии для HR</label>
+                    <textarea id="recruitmentComments" placeholder="Дополнительная информация..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Отправить заявку в HR
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Сервис интеграции систем «Персонал» и «Сервисные работы» © 2023</p>
+            <p>Для обеспечения информационного взаимодействия между управляющими магазинами и сотрудниками центрального офиса</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Данные системы
+        let tasks = [
+            {
+                id: 1,
+                name: "Ремонт холодильного оборудования",
+                description: "Требуется ремонт холодильной витрины в торговом зале",
+                date: "2023-10-15",
+                requirements: "Опыт работы с холодильным оборудованием не менее 3 лет",
+                status: "new",
+                createdBy: "Управляющий магазином",
+                createdAt: "2023-10-10",
+                priority: "high"
+            },
+            {
+                id: 2,
+                name: "Обслуживание кассовых терминалов",
+                description: "Профилактическое обслуживание всех кассовых терминалов",
+                date: "2023-10-18",
+                requirements: "Знание кассового оборудования, опыт обслуживания",
+                status: "in-work",
+                createdBy: "Управляющий магазином",
+                createdAt: "2023-10-05",
+                priority: "medium"
+            },
+            {
+                id: 3,
+                name: "Замена освещения в складе",
+                description: "Замена светильников на энергосберегающие",
+                date: "2023-10-12",
+                requirements: "Навыки электромонтажных работ",
+                status: "done",
+                createdBy: "Управляющий магазином",
+                createdAt: "2023-10-01",
+                assignedTo: ["Петров И.В.", "Сидоров К.М."],
+                priority: "low"
+            },
+            {
+                id: 4,
+                name: "Настройка системы видеонаблюдения",
+                description: "Добавление новых камер и настройка записи",
+                date: "2023-10-20",
+                requirements: "Опыт работы с системами видеонаблюдения",
+                status: "new",
+                createdBy: "Управляющий магазином",
+                createdAt: "2023-10-09",
+                priority: "medium"
+            }
+        ];
+        
+        let specialists = [
+            {
+                id: 1,
+                name: "Петров Иван Владимирович",
+                position: "Инженер-холодильщик",
+                skills: ["Холодильное оборудование", "Электрика"],
+                experience: "5 лет",
+                available: true
+            },
+            {
+                id: 2,
+                name: "Сидоров Константин Михайлович",
+                position: "Электромонтёр",
+                skills: ["Электромонтаж", "Освещение", "Розетки"],
+                experience: "7 лет",
+                available: true
+            },
+            {
+                id: 3,
+                name: "Козлова Анна Сергеевна",
+                position: "Специалист по ККТ",
+                skills: ["Кассовое оборудование", "Настройка ПО"],
+                experience: "4 года",
+                available: false
+            },
+            {
+                id: 4,
+                name: "Николаев Дмитрий Олегович",
+                position: "Системный администратор",
+                skills: ["Видеонаблюдение", "Сетевые технологии"],
+                experience: "6 лет",
+                available: true
+            }
+        ];
+        
+        let recruitmentRequests = [
+            {
+                id: 1,
+                position: "Специалист по вентиляции",
+                requirements: "Опыт работы с системами вентиляции и кондиционирования не менее 3 лет",
+                deadline: "2023-11-15",
+                status: "new",
+                createdForTask: 2
+            }
+        ];
+        
+        let currentUserRole = "store-manager"; // store-manager, office-manager, hr-specialist
+        let currentTaskIdForAssignment = null;
+        
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            initTabs();
+            renderTasks();
+            renderActiveTasks();
+            renderRecruitmentRequests();
+            updateStats();
+            initModals();
+            initFilters();
+            updateUIByRole();
+        });
+        
+        // Инициализация вкладок
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Удаляем класс active у всех вкладок
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Добавляем класс active текущей вкладке
+                    this.classList.add('active');
+                    
+                    // Здесь можно добавить логику переключения контента
+                    const tabName = this.getAttribute('data-tab');
+                    console.log(`Переключение на вкладку: ${tabName}`);
+                });
+            });
+        }
+        
+        // Отрисовка таблицы заданий
+        function renderTasks() {
+            const tableBody = document.querySelector('#tasksTable tbody');
+            tableBody.innerHTML = '';
+            
+            tasks.forEach(task => {
+                const row = document.createElement('tr');
+                
+                // Определяем статус задания
+                let statusClass, statusText;
+                switch(task.status) {
+                    case 'new':
+                        statusClass = 'status-new';
+                        statusText = 'Новый';
+                        break;
+                    case 'in-work':
+                        statusClass = 'status-in-work';
+                        statusText = 'В работе';
+                        break;
+                    case 'done':
+                        statusClass = 'status-done';
+                        statusText = 'Выполнен';
+                        break;
+                    case 'closed':
+                        statusClass = 'status-closed';
+                        statusText = 'Закрыт';
+                        break;
+                    case 'cancelled':
+                        statusClass = 'status-cancelled';
+                        statusText = 'Отменён';
+                        break;
+                }
+                
+                // Определяем доступные действия в зависимости от роли и статуса
+                let actions = '';
+                
+                if (currentUserRole === 'store-manager') {
+                    if (task.status === 'new') {
+                        actions = `<button class="btn btn-primary" onclick="sendToOffice(${task.id})" style="padding: 5px 10px; font-size: 0.9rem;">
+                                    <i class="fas fa-paper-plane"></i> В офис
+                                  </button>
+                                  <button class="btn btn-warning" onclick="editTask(${task.id})" style="padding: 5px 10px; font-size: 0.9rem;">
+                                    <i class="fas fa-edit"></i>
+                                  </button>
+                                  <button class="btn btn-danger" onclick="cancelTask(${task.id})" style="padding: 5px 10px; font-size: 0.9rem;">
+                                    <i class="fas fa-times"></i>
+                                  </button>`;
+                    } else {
+                        actions = `<span style="color: var(--light-text);">Только просмотр</span>`;
+                    }
+                } else if (currentUserRole === 'office-manager') {
+                    if (task.status === 'in-work') {
+                        actions = `<button class="btn btn-success" onclick="assignSpecialists(${task.id})" style="padding: 5px 10px; font-size: 0.9rem;">
+                                    <i class="fas fa-user-check"></i> Назначить
+                                  </button>`;
+                    } else {
+                        actions = `<span style="color: var(--light-text);">Только просмотр</span>`;
+                    }
+                } else if (currentUserRole === 'hr-specialist') {
+                    actions = `<span style="color: var(--light-text);">Только просмотр</span>`;
+                }
+                
+                row.innerHTML = `
+                    <td>${task.id}</td>
+                    <td><strong>${task.name}</strong><br><small>${task.description.substring(0, 50)}...</small></td>
+                    <td>${task.createdAt}</td>
+                    <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                    <td>${actions}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Отрисовка активных заданий
+        function renderActiveTasks() {
+            const activeTasksContainer = document.getElementById('activeTasks');
+            const activeTasks = tasks.filter(task => task.status === 'in-work' || task.status === 'new');
+            
+            if (activeTasks.length === 0) {
+                activeTasksContainer.innerHTML = '<p>Нет активных заданий</p>';
+                return;
+            }
+            
+            let html = '';
+            activeTasks.forEach(task => {
+                let statusClass, statusText;
+                if (task.status === 'new') {
+                    statusClass = 'status-new';
+                    statusText = 'Новый';
+                } else {
+                    statusClass = 'status-in-work';
+                    statusText = 'В работе';
+                }
+                
+                html += `
+                    <div class="specialist-item">
+                        <div class="specialist-info">
+                            <h4>${task.name}</h4>
+                            <p><small>Дата выполнения: ${task.date}</small></p>
+                            <p><small>Создано: ${task.createdAt}</small></p>
+                        </div>
+                        <div>
+                            <span class="status-badge ${statusClass}">${statusText}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            activeTasksContainer.innerHTML = html;
+        }
+        
+        // Отрисовка заявок на подбор
+        function renderRecruitmentRequests() {
+            const container = document.getElementById('recruitmentRequests');
+            
+            if (recruitmentRequests.length === 0) {
+                container.innerHTML = '<p>Нет заявок на подбор</p>';
+                return;
+            }
+            
+            let html = '';
+            recruitmentRequests.forEach(request => {
+                const task = tasks.find(t => t.id === request.createdForTask);
+                html += `
+                    <div class="specialist-item">
+                        <div class="specialist-info">
+                            <h4>${request.position}</h4>
+                            <p><small>Для задания: ${task ? task.name : 'Не указано'}</small></p>
+                            <p><small>Требуется до: ${request.deadline}</small></p>
+                            <p class="specialist-skills">${request.requirements.substring(0, 80)}...</p>
+                        </div>
+                        <div>
+                            <span class="status-badge status-new">Новая</span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // Обновление статистики
+        function updateStats() {
+            document.getElementById('newTasksCount').textContent = tasks.filter(t => t.status === 'new').length;
+            document.getElementById('inWorkTasksCount').textContent = tasks.filter(t => t.status === 'in-work').length;
+            document.getElementById('doneTasksCount').textContent = tasks.filter(t => t.status === 'done').length;
+            document.getElementById('recruitmentCount').textContent = recruitmentRequests.length;
+        }
+        
+        // Инициализация модальных окон
+        function initModals() {
+            // Модальное окно создания задания
+            const createTaskBtn = document.getElementById('createTaskBtn');
+            const createTaskModal = document.getElementById('createTaskModal');
+            const closeCreateTaskModal = document.getElementById('closeCreateTaskModal');
+            
+            createTaskBtn.addEventListener('click', () => {
+                createTaskModal.style.display = 'flex';
+                // Устанавливаем дату по умолчанию - завтрашний день
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                document.getElementById('taskDate').value = tomorrow.toISOString().split('T')[0];
+            });
+            
+            closeCreateTaskModal.addEventListener('click', () => {
+                createTaskModal.style.display = 'none';
+            });
+            
+            // Закрытие модальных окон при клике вне контента
+            window.addEventListener('click', (e) => {
+                if (e.target === createTaskModal) {
+                    createTaskModal.style.display = 'none';
+                }
+                if (e.target === document.getElementById('assignSpecialistsModal')) {
+                    document.getElementById('assignSpecialistsModal').style.display = 'none';
+                }
+                if (e.target === document.getElementById('recruitmentModal')) {
+                    document.getElementById('recruitmentModal').style.display = 'none';
+                }
+            });
+            
+            // Обработка формы создания задания
+            document.getElementById('createTaskForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const newTask = {
+                    id: tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 1,
+                    name: document.getElementById('taskName').value,
+                    description: document.getElementById('taskDescription').value,
+                    date: document.getElementById('taskDate').value,
+                    requirements: document.getElementById('taskRequirements').value,
+                    status: 'new',
+                    createdBy: 'Управляющий магазином',
+                    createdAt: new Date().toISOString().split('T')[0],
+                    priority: document.getElementById('taskPriority').value
+                };
+                
+                tasks.push(newTask);
+                renderTasks();
+                renderActiveTasks();
+                updateStats();
+                createTaskModal.style.display = 'none';
+                this.reset();
+                
+                alert('Задание успешно создано!');
+            });
+            
+            // Модальное окно назначения специалистов
+            const assignSpecialistsModal = document.getElementById('assignSpecialistsModal');
+            const closeAssignModal = document.getElementById('closeAssignModal');
+            
+            closeAssignModal.addEventListener('click', () => {
+                assignSpecialistsModal.style.display = 'none';
+            });
+            
+            // Кнопка создания заявки на подбор в модальном окне назначения
+            document.getElementById('createRecruitmentBtn').addEventListener('click', () => {
+                assignSpecialistsModal.style.display = 'none';
+                document.getElementById('recruitmentModal').style.display = 'flex';
+                
+                // Заполняем поля заявки на подбор данными из задания
+                const task = tasks.find(t => t.id === currentTaskIdForAssignment);
+                if (task) {
+                    document.getElementById('recruitmentPosition').value = task.name;
+                    document.getElementById('recruitmentRequirements').value = task.requirements;
+                    
+                    // Устанавливаем срок подбора на 2 недели от текущей даты
+                    const twoWeeksLater = new Date();
+                    twoWeeksLater.setDate(twoWeeksLater.getDate() + 14);
+                    document.getElementById('recruitmentDeadline').value = twoWeeksLater.toISOString().split('T')[0];
+                }
+            });
+            
+            // Обработка формы заявки на подбор
+            document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const newRequest = {
+                    id: recruitmentRequests.length > 0 ? Math.max(...recruitmentRequests.map(r => r.id)) + 1 : 1,
+                    position: document.getElementById('recruitmentPosition').value,
+                    requirements: document.getElementById('recruitmentRequirements').value,
+                    deadline: document.getElementById('recruitmentDeadline').value,
+                    quantity: document.getElementById('recruitmentQuantity').value,
+                    comments: document.getElementById('recruitmentComments').value,
+                    status: 'new',
+                    createdForTask: currentTaskIdForAssignment
+                };
+                
+                recruitmentRequests.push(newRequest);
+                renderRecruitmentRequests();
+                updateStats();
+                document.getElementById('recruitmentModal').style.display = 'none';
+                this.reset();
+                
+                alert('Заявка на подбор успешно отправлена в HR!');
+            });
+            
+            // Модальное окно заявки на подбор
+            const recruitmentModal = document.getElementById('recruitmentModal');
+            const closeRecruitmentModal = document.getElementById('closeRecruitmentModal');
+            
+            closeRecruitmentModal.addEventListener('click', () => {
+                recruitmentModal.style.display = 'none';
+            });
+        }
+        
+        // Инициализация фильтров
+        function initFilters() {
+            const statusFilter = document.getElementById('statusFilter');
+            statusFilter.addEventListener('change', filterTasks);
+            
+            const dateFromFilter = document.getElementById('dateFromFilter');
+            dateFromFilter.addEventListener('change', filterTasks);
+            
+            const dateToFilter = document.getElementById('dateToFilter');
+            dateToFilter.addEventListener('change', filterTasks);
+        }
+        
+        // Фильтрация заданий
+        function filterTasks() {
+            // В реальном приложении здесь был бы запрос к серверу
+            console.log('Фильтрация заданий по выбранным критериям');
+        }
+        
+        // Обновление интерфейса в зависимости от роли пользователя
+        function updateUIByRole() {
+            const roleElement = document.getElementById('userRole');
+            
+            if (currentUserRole === 'store-manager') {
+                roleElement.textContent = 'Управляющий магазином';
+                document.getElementById('createTaskBtn').style.display = 'flex';
+            } else if (currentUserRole === 'office-manager') {
+                roleElement.textContent = 'Управляющий офисом';
+                document.getElementById('createTaskBtn').style.display = 'none';
+            } else if (currentUserRole === 'hr-specialist') {
+                roleElement.textContent = 'Специалист HR';
+                document.getElementById('createTaskBtn').style.display = 'none';
+            }
+            
+            renderTasks();
+        }
+        
+        // Функции для работы с заданиями
+        function sendToOffice(taskId) {
+            const taskIndex = tasks.findIndex(t => t.id === taskId);
+            if (taskIndex !== -1) {
+                tasks[taskIndex].status = 'in-work';
+                renderTasks();
+                renderActiveTasks();
+                updateStats();
+                alert('Задание отправлено в офис для назначения специалистов!');
+            }
+        }
+        
+        function editTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                // В реальном приложении здесь открывалась бы форма редактирования
+                alert(`Редактирование задания: ${task.name}`);
+            }
+        }
+        
+        function cancelTask(taskId) {
+            if (confirm('Вы уверены, что хотите отменить это задание?')) {
+                const taskIndex = tasks.findIndex(t => t.id === taskId);
+                if (taskIndex !== -1) {
+                    tasks[taskIndex].status = 'cancelled';
+                    renderTasks();
+                    renderActiveTasks();
+                    updateStats();
+                    alert('Задание отменено!');
+                }
+            }
+        }
+        
+        function assignSpecialists(taskId) {
+            currentTaskIdForAssignment = taskId;
+            const task = tasks.find(t => t.id === taskId);
+            const modal = document.getElementById('assignSpecialistsModal');
+            
+            if (task) {
+                // Заполняем информацию о задании
+                document.getElementById('taskInfo').innerHTML = `
+                    <h3>${task.name}</h3>
+                    <p>${task.description}</p>
+                    <p><strong>Дата выполнения:</strong> ${task.date}</p>
+                    <p><strong>Требования:</strong> ${task.requirements}</p>
+                    <hr>
+                `;
+                
+                // Заполняем список специалистов
+                const specialistsList = document.getElementById('specialistsList');
+                specialistsList.innerHTML = '';
+                
+                // Фильтруем специалистов по доступности
+                const availableSpecialists = specialists.filter(s => s.available);
+                
+                if (availableSpecialists.length === 0) {
+                    specialistsList.innerHTML = '<p>Нет доступных специалистов. Создайте заявку на подбор.</p>';
+                } else {
+                    availableSpecialists.forEach(specialist => {
+                        const specialistItem = document.createElement('div');
+                        specialistItem.className = 'specialist-item';
+                        specialistItem.innerHTML = `
+                            <div class="specialist-info">
+                                <h4>${specialist.name}</h4>
+                                <p>${specialist.position}</p>
+                                <p class="specialist-skills">${specialist.skills.join(', ')}</p>
+                                <p><small>Опыт: ${specialist.experience}</small></p>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="specialist-checkbox" value="${specialist.id}">
+                            </div>
+                        `;
+                        specialistsList.appendChild(specialistItem);
+                    });
+                }
+                
+                modal.style.display = 'flex';
+            }
+            
+            // Обработка нажатия кнопки назначения
+            document.getElementById('assignBtn').onclick = function() {
+                const selectedCheckboxes = document.querySelectorAll('.specialist-checkbox:checked');
+                
+                if (selectedCheckboxes.length === 0) {
+                    alert('Выберите хотя бы одного специалиста!');
+                    return;
+                }
+                
+                const selectedSpecialistIds = Array.from(selectedCheckboxes).map(cb => parseInt(cb.value));
+                const selectedSpecialists = specialists.filter(s => selectedSpecialistIds.includes(s.id));
+                
+                // Обновляем задание
+                const taskIndex = tasks.findIndex(t => t.id === taskId);
+                if (taskIndex !== -1) {
+                    tasks[taskIndex].status = 'done';
+                    tasks[taskIndex].assignedTo = selectedSpecialists.map(s => s.name);
+                    
+                    // Отмечаем специалистов как занятых
+                    selectedSpecialistIds.forEach(id => {
+                        const specialistIndex = specialists.findIndex(s => s.id === id);
+                        if (specialistIndex !== -1) {
+                            specialists[specialistIndex].available = false;
+                        }
+                    });
+                    
+                    renderTasks();
+                    renderActiveTasks();
+                    updateStats();
+                    modal.style.display = 'none';
+                    
+                    alert(`Задание выполнено! Назначены специалисты: ${selectedSpecialists.map(s => s.name).join(', ')}`);
+                }
+            };
+        }
+        
+        // Функция смены роли пользователя (для демонстрации)
+        function switchUserRole(role) {
+            currentUserRole = role;
+            updateUIByRole();
+        }
+    </script>
+</body>
+</html>
