@@ -1,346 +1,279 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0" version="29.3.8">
-  <diagram name="Управление покерным турниром" id="poker-tournament-bpmn-fixed">
-    <mxGraphModel dx="1668" dy="925" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="#ffffff" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="header" parent="1" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;fontColor=#2C3E50;fontStyle=1;" value="БИЗНЕС-ПРОЦЕСС: УПРАВЛЕНИЕ ПОКЕРНЫМ ТУРНИРОМ" vertex="1">
-          <mxGeometry height="40" width="560" x="40" y="10" as="geometry" />
-        </mxCell>
-        <mxCell id="pool" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;startSize=40;horizontal=0;rounded=0;fontSize=16;fontColor=#2C3E50;strokeColor=#2C3E50;fillColor=none;" value="Управление покерным турниром" vertex="1">
-          <mxGeometry height="500" width="1210" x="40" y="60" as="geometry" />
-        </mxCell>
-        <mxCell id="lane_admin" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#2C3E50;strokeColor=#2C3E50;fillColor=#3498DB;" value="Администратор" vertex="1">
-          <mxGeometry height="140" width="1120" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_start" parent="lane_admin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#27AE60;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="50" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_create" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Создать турнир" vertex="1">
-          <mxGeometry height="40" width="100" x="100" y="15" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_data_params" parent="lane_admin" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontColor=#2C3E50;" value="Параметры&#xa;турнира" vertex="1">
-          <mxGeometry height="40" width="80" x="110" y="85" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_prizes" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Настроить&#xa;призовую сетку" vertex="1">
-          <mxGeometry height="40" width="100" x="230" y="15" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_data_prizes" parent="lane_admin" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontColor=#2C3E50;" value="Призовая&#xa;сетка" vertex="1">
-          <mxGeometry height="40" width="80" x="240" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_register" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Открыть&#xa;регистрацию" vertex="1">
-          <mxGeometry height="40" width="100" x="370" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_timer" parent="lane_admin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#3498DB;perimeter=ellipsePerimeter;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="490" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_start_tournament" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Начать турнир" vertex="1">
-          <mxGeometry height="40" width="100" x="550" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_gateway" parent="lane_admin" style="shape=gateway;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34495E;strokeWidth=2;fontSize=11;symbol=parallel;symbolFillColor=#34495E;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="40" width="40" x="680" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_monitor" parent="lane_admin" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;rounded=1;arcSize=20;" value="Мониторить&#xa;турнир" vertex="1">
-          <mxGeometry height="40" width="100" x="770" y="30" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_manage" parent="lane_admin" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;rounded=1;arcSize=20;" value="Управлять&#xa;призами" vertex="1">
-          <mxGeometry height="40" width="100" x="770" y="80" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_end" parent="lane_admin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=3;fillColor=#FFFFFF;strokeColor=#C0392B;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="1050" y="55" as="geometry" />
-        </mxCell>
-        <mxCell id="admin_finish" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Завершить&#xa;турнир" vertex="1">
-          <mxGeometry height="40" width="80" x="930" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_1" edge="1" parent="lane_admin" source="admin_start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_create">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_2" edge="1" parent="lane_admin" source="admin_create" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_prizes">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_3" edge="1" parent="lane_admin" source="admin_prizes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_register">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_4" edge="1" parent="lane_admin" source="admin_register" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_timer">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_5" edge="1" parent="lane_admin" source="admin_timer_label" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_start_tournament">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_6" edge="1" parent="lane_admin" source="admin_start_tournament" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_gateway">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_7" edge="1" parent="lane_admin" source="admin_gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_monitor">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_8" edge="1" parent="lane_admin" source="admin_gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_manage">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_9" edge="1" parent="lane_admin" source="admin_monitor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_finish">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_10" edge="1" parent="lane_admin" source="admin_manage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_finish">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_11" edge="1" parent="lane_admin" source="admin_finish" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_end">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_data_1" edge="1" parent="lane_admin" source="admin_create" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;fontColor=#2C3E50;" target="admin_data_params">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_admin_data_2" edge="1" parent="lane_admin" source="admin_prizes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;fontColor=#2C3E50;" target="admin_data_prizes">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="OrIKdP1AoNRKbUVVl4_J-5" edge="1" parent="lane_admin" source="admin_timer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="admin_timer_label" value="">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="560" y="185" as="sourcePoint" />
-            <mxPoint x="590" y="170" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="admin_timer_label" parent="lane_admin" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#2C3E50;" value="Таймер старта" vertex="1">
-          <mxGeometry height="20" width="70" x="470" y="75" as="geometry" />
-        </mxCell>
-        <mxCell id="lane_player" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#2C3E50;strokeColor=#2C3E50;fillColor=#2ECC71;" value="Игрок" vertex="1">
-          <mxGeometry height="140" width="1120" y="180" as="geometry" />
-        </mxCell>
-        <mxCell id="player_start" parent="lane_player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#27AE60;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="40" y="55" as="geometry" />
-        </mxCell>
-        <mxCell id="player_view" parent="lane_player" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Просмотреть&#xa;турниры" vertex="1">
-          <mxGeometry height="40" width="100" x="100" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="player_gateway_xor" parent="lane_player" style="shape=gateway;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34495E;strokeWidth=2;fontSize=11;symbol=exclusive;symbolFillColor=#34495E;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="40" width="40" x="230" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="player_register" parent="lane_player" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Зарегистрироваться" vertex="1">
-          <mxGeometry height="40" width="120" x="310" y="30" as="geometry" />
-        </mxCell>
-        <mxCell id="player_data_confirm" parent="lane_player" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontColor=#2C3E50;" value="Подтверждение&#xa;регистрации" vertex="1">
-          <mxGeometry height="40" width="90" x="140" y="100" as="geometry" />
-        </mxCell>
-        <mxCell id="player_leave" parent="lane_player" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Покинуть&#xa;турнир" vertex="1">
-          <mxGeometry height="40" width="120" x="320" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="player_message" parent="lane_player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#3498DB;perimeter=ellipsePerimeter;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="480" y="55" as="geometry" />
-        </mxCell>
-        <mxCell id="player_message_label" parent="lane_player" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#2C3E50;" value="Старт турнира" vertex="1">
-          <mxGeometry height="20" width="70" x="470" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="player_participate" parent="lane_player" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Участвовать&#xa;в турнире" vertex="1">
-          <mxGeometry height="40" width="120" x="540" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="player_gateway_parallel" parent="lane_player" style="shape=gateway;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34495E;strokeWidth=2;fontSize=11;symbol=parallel;symbolFillColor=#34495E;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="40" width="40" x="690" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="player_play" parent="lane_player" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Играть" vertex="1">
-          <mxGeometry height="40" width="80" x="810" y="30" as="geometry" />
-        </mxCell>
-        <mxCell id="player_stack" parent="lane_player" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Следить за&#xa;стеком" vertex="1">
-          <mxGeometry height="40" width="80" x="810" y="85" as="geometry" />
-        </mxCell>
-        <mxCell id="player_gateway_or" parent="lane_player" style="shape=gateway;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34495E;strokeWidth=2;fontSize=11;symbol=inclusive;symbolFillColor=#34495E;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="40" width="40" x="930" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="player_end_eliminated" parent="lane_player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#E74C3C;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="1040" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="player_end_eliminated_label" parent="lane_player" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#2C3E50;" value="Выбывание" vertex="1">
-          <mxGeometry height="20" width="60" x="960" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="player_end_win" parent="lane_player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=3;fillColor=#FFFFFF;strokeColor=#27AE60;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="1040" y="15" as="geometry" />
-        </mxCell>
-        <mxCell id="player_end_win_label" parent="lane_player" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#2C3E50;" value="Победа" vertex="1">
-          <mxGeometry height="20" width="40" x="970" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_1" edge="1" parent="lane_player" source="player_start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_view">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_2" edge="1" parent="lane_player" source="player_view" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_gateway_xor">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_3" edge="1" parent="lane_player" source="player_gateway_xor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_register">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="280" y="50" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="flow_player_4" edge="1" parent="lane_player" source="player_gateway_xor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_leave">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="280" y="120" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="flow_player_5" edge="1" parent="lane_player" source="player_register" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_message">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_6" edge="1" parent="lane_player" source="player_message" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_participate">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_7" edge="1" parent="lane_player" source="player_participate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_gateway_parallel">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_8" edge="1" parent="lane_player" source="player_gateway_parallel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_play">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_9" edge="1" parent="lane_player" source="player_gateway_parallel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_stack">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_10" edge="1" parent="lane_player" source="player_play" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_gateway_or">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_11" edge="1" parent="lane_player" source="player_stack" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="player_gateway_or">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_12" edge="1" parent="lane_player" source="player_gateway_or" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#E74C3C;fontColor=#2C3E50;" target="player_end_eliminated">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_13" edge="1" parent="lane_player" source="player_gateway_or" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#27AE60;fontColor=#2C3E50;" target="player_end_win">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_player_data" edge="1" parent="lane_player" source="player_register" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;fontColor=#2C3E50;" target="player_data_confirm">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="lane_dealer" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#2C3E50;strokeColor=#2C3E50;fillColor=#E74C3C;" value="Дилер" vertex="1">
-          <mxGeometry height="140" width="1120" y="320" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_start" parent="lane_dealer" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#27AE60;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="40" y="55" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_prepare" parent="lane_dealer" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Подготовить&#xa;стол" vertex="1">
-          <mxGeometry height="40" width="100" x="100" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_signal" parent="lane_dealer" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#3498DB;perimeter=ellipsePerimeter;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="230" y="55" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_signal_label" parent="lane_dealer" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#2C3E50;" value="Сигнал старта" vertex="1">
-          <mxGeometry height="20" width="70" x="220" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_deal" parent="lane_dealer" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Вести раздачи" vertex="1">
-          <mxGeometry height="40" width="120" x="290" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_gateway_xor" parent="lane_dealer" style="shape=gateway;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34495E;strokeWidth=2;fontSize=11;symbol=exclusive;symbolFillColor=#34495E;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="40" width="40" x="440" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_blinds" parent="lane_dealer" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Обновить&#xa;блайнды" vertex="1">
-          <mxGeometry height="40" width="100" x="520" y="30" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_eliminate" parent="lane_dealer" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Удалить&#xa;игрока" vertex="1">
-          <mxGeometry height="40" width="100" x="520" y="80" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_subprocess" parent="lane_dealer" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FAD7A0;strokeColor=#2C3E50;fontSize=12;fontColor=#2C3E50;" value="Контроль&#xa;стола" vertex="1">
-          <mxGeometry height="40" width="100" x="650" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_subprocess_plus" parent="lane_dealer" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFFFFF;strokeColor=#2C3E50;fontSize=14;fontColor=#2C3E50;" value="+" vertex="1">
-          <mxGeometry height="10" width="10" x="730" y="65" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_report" parent="lane_dealer" style="shape=note;whiteSpace=wrap;html=1;size=20;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontColor=#2C3E50;" value="Отчет о&#xa;проблеме" vertex="1">
-          <mxGeometry height="40" width="80" x="780" y="80" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_error" parent="lane_dealer" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#E74C3C;perimeter=ellipsePerimeter;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="910" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_error_label" parent="lane_dealer" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#2C3E50;" value="Ошибка" vertex="1">
-          <mxGeometry height="20" width="50" x="885" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_end" parent="lane_dealer" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#34495E;fontColor=#2C3E50;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="970" y="55" as="geometry" />
-        </mxCell>
-        <mxCell id="dealer_end_label" parent="lane_dealer" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#2C3E50;" value="Завершение" vertex="1">
-          <mxGeometry height="20" width="70" x="960" y="90" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_1" edge="1" parent="lane_dealer" source="dealer_start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_prepare">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_2" edge="1" parent="lane_dealer" source="dealer_prepare" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_signal">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_3" edge="1" parent="lane_dealer" source="dealer_signal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_deal">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_4" edge="1" parent="lane_dealer" source="dealer_deal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_gateway_xor">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_5" edge="1" parent="lane_dealer" source="dealer_gateway_xor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_blinds">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="500" y="50" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="flow_dealer_6" edge="1" parent="lane_dealer" source="dealer_gateway_xor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_eliminate">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="500" y="100" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="flow_dealer_7" edge="1" parent="lane_dealer" source="dealer_blinds" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_subprocess">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_8" edge="1" parent="lane_dealer" source="dealer_eliminate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_subprocess">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_9" edge="1" parent="lane_dealer" source="dealer_subprocess" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_report">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_10" edge="1" parent="lane_dealer" source="dealer_report" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_error">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_11" edge="1" parent="lane_dealer" source="dealer_subprocess" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_end">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_dealer_12" edge="1" parent="lane_dealer" source="dealer_error" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontColor=#2C3E50;" target="dealer_end">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_message_admin_player" edge="1" parent="1" source="admin_timer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#3498DB;endArrow=classicThin;endFill=1;startArrow=oval;startFill=1;dashed=1;fontColor=#2C3E50;" target="player_message" value="Оповещение о старте">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_message_admin_dealer" edge="1" parent="1" source="admin_start_tournament" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#3498DB;endArrow=classicThin;endFill=1;startArrow=oval;startFill=1;dashed=1;fontColor=#2C3E50;" target="dealer_signal" value="Сигнал старта">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="flow_message_dealer_admin" edge="1" parent="1" source="dealer_report" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#E74C3C;endArrow=classicThin;endFill=1;dashed=1;fontColor=#2C3E50;" target="admin_monitor" value="Отчет о проблеме">
-          <mxGeometry relative="1" x="-0.0625" y="80" as="geometry">
-            <mxPoint y="1" as="offset" />
-            <Array as="points">
-              <mxPoint x="830" y="200" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="flow_message_player_dealer" edge="1" parent="1" source="player_play" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#F39C12;endArrow=classicThin;endFill=1;dashed=1;fontColor=#2C3E50;" target="dealer_eliminate" value="Запрос помощи">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="legend_roles" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;startSize=30;horizontal=0;rounded=1;fontSize=14;fontColor=#2C3E50;strokeColor=#2C3E50;fillColor=#34495E;" value="РОЛИ:" vertex="1">
-          <mxGeometry height="120" width="260" x="70" y="590" as="geometry" />
-        </mxCell>
-        <mxCell id="legend_roles_1" parent="legend_roles" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=#2C3E50;" value="• 🟦 Администратор - управление турнирами" vertex="1">
-          <mxGeometry height="20" width="260" y="30" as="geometry" />
-        </mxCell>
-        <mxCell id="legend_roles_2" parent="legend_roles" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=#2C3E50;" value="• 🟩 Игрок - участие в турнире" vertex="1">
-          <mxGeometry height="20" width="260" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="legend_roles_3" parent="legend_roles" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=#2C3E50;" value="• 🟥 Дилер - ведение игры за столом" vertex="1">
-          <mxGeometry height="20" width="260" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="legend_gateways" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;startSize=30;horizontal=0;rounded=1;fontSize=14;fontColor=#2C3E50;strokeColor=#2C3E50;fillColor=#34495E;" value="ТИПЫ ШЛЮЗОВ:" vertex="1">
-          <mxGeometry height="140" width="260" x="380" y="590" as="geometry" />
-        </mxCell>
-        <mxCell id="legend_gateways_1" parent="legend_gateways" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=#2C3E50;" value="• + Параллельный (И) - все пути" vertex="1">
-          <mxGeometry height="20" width="260" x="30" y="10" as="geometry" />
-        </mxCell>
-        <mxCell id="legend_gateways_2" parent="legend_gateways" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=#2C3E50;" value="• × Эксклюзивный (XOR) - один путь" vertex="1">
-          <mxGeometry height="20" width="260" x="30" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="legend_gateways_3" parent="legend_gateways" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=#2C3E50;" value="• ○ Неэксклюзивный (OR) - один/несколько" vertex="1">
-          <mxGeometry height="20" width="260" x="30" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="OrIKdP1AoNRKbUVVl4_J-2" edge="1" parent="1" source="legend_gateways_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="legend_roles_3" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
+<mxGraphModel dx="1317" dy="1120" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="#ffffff" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="header" parent="1" style="text;html=1;align=center;verticalAlign=middle;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;fontColor=#2C3E50;fontStyle=1;" value="БИЗНЕС-ПРОЦЕСС: УПРАВЛЕНИЕ СЕРВИСНЫМИ РАБОТАМИ" vertex="1">
+      <mxGeometry height="40" width="600" x="40" y="10" as="geometry" />
+    </mxCell>
+    <mxCell id="pool" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;startSize=40;horizontal=0;rounded=0;fontSize=16;fontColor=#2C3E50;strokeColor=#2C3E50;fillColor=none;" value="Управление сервисными работами" vertex="1">
+      <mxGeometry height="650" width="1400" x="40" y="60" as="geometry" />
+    </mxCell>
+    <mxCell id="lane_manager" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#3498DB;" value="Управляющий магазином" vertex="1">
+      <mxGeometry height="192.5" width="1320" y="40" as="geometry" />
+    </mxCell>
+    <mxCell id="start_event" parent="lane_manager" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#27AE60;" value="" vertex="1">
+      <mxGeometry height="30" width="30" x="40" y="75" as="geometry" />
+    </mxCell>
+    <mxCell id="manager_create" parent="lane_manager" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Создать черновик&#xa;задания" vertex="1">
+      <mxGeometry height="50" width="120" x="80" y="25" as="geometry" />
+    </mxCell>
+    <mxCell id="manager_draft_data" parent="lane_manager" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Черновик задания&#xa;Статус: НОВЫЙ" vertex="1">
+      <mxGeometry height="45" width="100" x="100" y="115" as="geometry" />
+    </mxCell>
+    <mxCell id="manager_edit" parent="lane_manager" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Редактировать&#xa;параметры" vertex="1">
+      <mxGeometry height="50" width="120" x="240" y="25" as="geometry" />
+    </mxCell>
+    <mxCell id="manager_send" parent="lane_manager" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Отправить&#xa;в офис" vertex="1">
+      <mxGeometry height="50" width="120" x="650" as="geometry" />
+    </mxCell>
+    <mxCell id="manager_cancel" parent="lane_manager" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Отменить&#xa;задание" vertex="1">
+      <mxGeometry height="50" width="120" x="700" y="100" as="geometry" />
+    </mxCell>
+    <mxCell id="manager_cancelled" parent="lane_manager" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#E74C3C;" value="Задание ОТМЕНЕНО" vertex="1">
+      <mxGeometry height="40" width="40" x="1070" y="65" as="geometry" />
+    </mxCell>
+    <mxCell id="manager_inwork_data" parent="lane_manager" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Задание&#xa;Статус: В РАБОТЕ" vertex="1">
+      <mxGeometry height="45" width="100" x="495" y="130" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_manager_1" edge="1" parent="lane_manager" source="start_event" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="manager_create">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_manager_2" edge="1" parent="lane_manager" source="manager_create" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="manager_edit">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_manager_3" edge="1" parent="lane_manager" source="manager_edit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="400" y="75.0526315789474" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_manager_4" edge="1" parent="lane_manager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="manager_send">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="520" y="75" />
+          <mxPoint x="520" y="40" />
+        </Array>
+        <mxPoint x="450" y="75.0526315789474" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_manager_5" edge="1" parent="lane_manager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="520" y="119.95" />
+        </Array>
+        <mxPoint x="495" y="75.0026315789474" as="sourcePoint" />
+        <mxPoint x="705" y="119.95" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_manager_6" edge="1" parent="lane_manager" source="manager_cancel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="manager_cancelled">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_manager_data1" edge="1" parent="lane_manager" source="manager_create" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="manager_draft_data">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_manager_data2" edge="1" parent="lane_manager" source="manager_send" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="manager_inwork_data">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="ejGMhtoU5VwSWVP530ry-2" parent="lane_manager" style="rhombus;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Отправить или отменить?&lt;/span&gt;" vertex="1">
+      <mxGeometry height="80" width="80" x="400" y="35" as="geometry" />
+    </mxCell>
+    <mxCell id="lane_office" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#2ECC71;" value="Управляющий офисом" vertex="1">
+      <mxGeometry height="230" width="1320" y="220" as="geometry" />
+    </mxCell>
+    <mxCell id="office_receive" parent="lane_office" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Получить задание" vertex="1">
+      <mxGeometry height="40" width="120" x="80" y="45" as="geometry" />
+    </mxCell>
+    <mxCell id="office_data_task" parent="lane_office" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Задание&#xa;Статус: В РАБОТЕ" vertex="1">
+      <mxGeometry height="45" width="100" x="80" y="140" as="geometry" />
+    </mxCell>
+    <mxCell id="office_search" parent="lane_office" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FAD7A0;strokeColor=#2C3E50;fontSize=12;fontStyle=1;" value="US-04: Найти&#xa;сотрудников" vertex="1">
+      <mxGeometry height="50" width="120" x="240" y="45" as="geometry" />
+    </mxCell>
+    <mxCell id="office_data_params" parent="lane_office" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;" value="Параметры поиска:&#xa;специализация, даты" vertex="1">
+      <mxGeometry height="45" width="110" x="240" y="170" as="geometry" />
+    </mxCell>
+    <mxCell id="office_data_candidates" parent="lane_office" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;" value="Список кандидатов&#xa;(из системы Персонал)" vertex="1">
+      <mxGeometry height="45" width="120" x="390" y="177.5" as="geometry" />
+    </mxCell>
+    <mxCell id="office_assign" parent="lane_office" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Назначить&#xa;исполнителей" vertex="1">
+      <mxGeometry height="50" width="120" x="540" y="20" as="geometry" />
+    </mxCell>
+    <mxCell id="office_data_assigned" parent="lane_office" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;" value="Назначенные&#xa;исполнители" vertex="1">
+      <mxGeometry height="40" width="110" x="640" y="182.5" as="geometry" />
+    </mxCell>
+    <mxCell id="office_completed" parent="lane_office" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#27AE60;" value="Задание&#xa;Статус: ВЫПОЛНЕНО" vertex="1">
+      <mxGeometry height="50" width="50" x="760" y="35" as="geometry" />
+    </mxCell>
+    <mxCell id="office_create_request" parent="lane_office" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Создать заявку&#xa;в HR" vertex="1">
+      <mxGeometry height="50" width="120" x="540" y="110" as="geometry" />
+    </mxCell>
+    <mxCell id="office_data_request" parent="lane_office" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Заявка на подбор&#xa;Статус: ОТКРЫТА" vertex="1">
+      <mxGeometry height="45" width="110" x="780" y="180" as="geometry" />
+    </mxCell>
+    <mxCell id="office_history" parent="lane_office" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Просмотр истории&#xa;назначений" vertex="1">
+      <mxGeometry height="50" width="120" x="860" y="100" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_1" edge="1" parent="lane_office" source="office_receive" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="office_search">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_2" edge="1" parent="lane_office" source="office_search" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="410" y="85.05263157894751" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_office_3" edge="1" parent="lane_office" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="office_assign">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="490" y="35" />
+        </Array>
+        <mxPoint x="470" y="85.05263157894751" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_office_4" edge="1" parent="lane_office" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="office_create_request">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="490" y="125" />
+        </Array>
+        <mxPoint x="470" y="85.05263157894751" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_office_5" edge="1" parent="lane_office" source="office_assign" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="office_completed">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_6" edge="1" parent="lane_office" source="office_completed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="office_history">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_data1" edge="1" parent="lane_office" source="office_receive" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="office_data_task">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_data2" edge="1" parent="lane_office" source="office_search" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="office_data_params">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_data3" edge="1" parent="lane_office" source="office_search" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="office_data_candidates">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_data4" edge="1" parent="lane_office" source="office_assign" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="office_data_assigned">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_data5" edge="1" parent="lane_office" source="office_create_request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="office_data_request">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="ejGMhtoU5VwSWVP530ry-5" parent="lane_office" style="rhombus;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Есть подходящие&lt;/span&gt;&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;кандидаты?&lt;/span&gt;" vertex="1">
+      <mxGeometry height="65" width="60" x="410" y="50" as="geometry" />
+    </mxCell>
+    <mxCell id="lane_hr" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#E74C3C;" value="Специалист HR" vertex="1">
+      <mxGeometry height="180" width="1320" y="450" as="geometry" />
+    </mxCell>
+    <mxCell id="hr_receive" parent="lane_hr" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Получить заявку&#xa;на подбор" vertex="1">
+      <mxGeometry height="50" width="120" x="80" y="40" as="geometry" />
+    </mxCell>
+    <mxCell id="hr_data_request" parent="lane_hr" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Заявка на подбор&#xa;Статус: ОТКРЫТА" vertex="1">
+      <mxGeometry height="45" width="110" x="90" y="120" as="geometry" />
+    </mxCell>
+    <mxCell id="hr_search" parent="lane_hr" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Найти&#xa;специалиста" vertex="1">
+      <mxGeometry height="50" width="120" x="240" y="40" as="geometry" />
+    </mxCell>
+    <mxCell id="hr_add" parent="lane_hr" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Добавить&#xa;в базу" vertex="1">
+      <mxGeometry height="50" width="120" x="400" y="40" as="geometry" />
+    </mxCell>
+    <mxCell id="hr_data_new" parent="lane_hr" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;" value="Карточка&#xa;сотрудника" vertex="1">
+      <mxGeometry height="40" width="100" x="410" y="120" as="geometry" />
+    </mxCell>
+    <mxCell id="hr_close" parent="lane_hr" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Закрыть&#xa;заявку" vertex="1">
+      <mxGeometry height="50" width="120" x="910" y="40" as="geometry" />
+    </mxCell>
+    <mxCell id="hr_data_closed" parent="lane_hr" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Заявка&#xa;Статус: ЗАКРЫТА" vertex="1">
+      <mxGeometry height="45" width="100" x="680" y="120" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_hr_1" edge="1" parent="lane_hr" source="hr_receive" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="hr_search">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_hr_2" edge="1" parent="lane_hr" source="hr_search" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="hr_add">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_hr_3" edge="1" parent="lane_hr" source="hr_add" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="570" y="90.00000000000023" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_hr_4" edge="1" parent="lane_hr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="hr_close">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="630" y="90.00000000000023" as="sourcePoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="flow_hr_data1" edge="1" parent="lane_hr" source="hr_receive" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="hr_data_request">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_hr_data2" edge="1" parent="lane_hr" source="hr_add" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="hr_data_new">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_hr_data3" edge="1" parent="lane_hr" source="hr_close" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;strokeColor=#F39C12;endArrow=classicThin;endFill=1;" target="hr_data_closed">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="ejGMhtoU5VwSWVP530ry-7" parent="lane_hr" style="rhombus;whiteSpace=wrap;html=1;" value="задание выполнено?" vertex="1">
+      <mxGeometry height="70" width="70" x="560" y="55" as="geometry" />
+    </mxCell>
+    <mxCell id="message_manager_to_office" edge="1" parent="1" source="manager_send" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#3498DB;endArrow=classicThin;endFill=1;startArrow=oval;startFill=1;dashed=1;fontSize=11;" target="office_receive" value="Задание отправлено">
+      <mxGeometry relative="1" x="-1" y="69" as="geometry">
+        <mxPoint x="60" y="-34" as="offset" />
+        <Array as="points">
+          <mxPoint x="560" y="195" />
+          <mxPoint x="140" y="195" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="message_office_to_hr" edge="1" parent="1" source="office_create_request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#3498DB;endArrow=classicThin;endFill=1;startArrow=oval;startFill=1;dashed=1;fontSize=11;" target="hr_receive" value="Заявка на подбор">
+      <mxGeometry relative="1" x="-0.0588" y="-20" as="geometry">
+        <mxPoint as="offset" />
+        <Array as="points">
+          <mxPoint x="570" y="440" />
+          <mxPoint x="140" y="440" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="end_event" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=3;fillColor=#FFFFFF;strokeColor=#C0392B;" value="КОНЕЦ" vertex="1">
+      <mxGeometry height="50" width="50" x="1300" y="380" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_manager_cancel_to_end" edge="1" parent="1" source="manager_cancelled" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="end_event">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_history_to_end" edge="1" parent="1" source="office_history" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="end_event">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_hr_close_to_end" edge="1" parent="1" source="hr_close" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="end_event">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_roles" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;startSize=30;horizontal=0;rounded=1;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#34495E;" value="РОЛИ:" vertex="1">
+      <mxGeometry height="110" width="300" x="70" y="730" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_roles_1" parent="legend_roles" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF33);" value="• 🟦 Управляющий магазином - создание и отправка заданий" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="10" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_roles_2" parent="legend_roles" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF66);" value="• 🟩 Управляющий офисом - поиск и назначение персонала" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="30" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_roles_3" parent="legend_roles" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF66);" value="• 🟥 Специалист HR - подбор новых сотрудников" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="50" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_elements" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;startSize=30;horizontal=0;rounded=1;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#34495E;" value="ЭЛЕМЕНТЫ:" vertex="1">
+      <mxGeometry height="150" width="300" x="420" y="730" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_elements_1" parent="legend_elements" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF66);" value="• ⚪ Старт процесса (один)" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="15" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_elements_2" parent="legend_elements" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF66);" value="• ⏺ Конец процесса (общий)" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="35" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_elements_3" parent="legend_elements" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF66);" value="• ◻ Задача / действие" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="55" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_elements_4" parent="legend_elements" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF66);" value="• 🔶 Шлюз (РОМБ с условием)" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="75" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_elements_5" parent="legend_elements" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF66);" value="• 📄 Документ / данные (со статусом)" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="95" as="geometry" />
+    </mxCell>
+    <mxCell id="legend_elements_6" parent="legend_elements" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontSize=11;fontColor=light-dark(#FFFFFF,#FFFF66);" value="• --- Сообщение между ролями" vertex="1">
+      <mxGeometry height="20" width="300" x="30" y="115" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
