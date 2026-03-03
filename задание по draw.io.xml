@@ -1,4 +1,4 @@
-<mxGraphModel dx="1317" dy="1120" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="#ffffff" math="0" shadow="0">
+<mxGraphModel dx="1576" dy="876" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="#ffffff" math="0" shadow="0">
   <root>
     <mxCell id="0" />
     <mxCell id="1" parent="0" />
@@ -6,7 +6,7 @@
       <mxGeometry height="40" width="600" x="40" y="10" as="geometry" />
     </mxCell>
     <mxCell id="pool" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;startSize=40;horizontal=0;rounded=0;fontSize=16;fontColor=#2C3E50;strokeColor=#2C3E50;fillColor=none;" value="Управление сервисными работами" vertex="1">
-      <mxGeometry height="650" width="1400" x="40" y="60" as="geometry" />
+      <mxGeometry height="675" width="1400" x="40" y="60" as="geometry" />
     </mxCell>
     <mxCell id="lane_manager" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#3498DB;" value="Управляющий магазином" vertex="1">
       <mxGeometry height="192.5" width="1320" y="40" as="geometry" />
@@ -30,7 +30,7 @@
       <mxGeometry height="50" width="120" x="700" y="100" as="geometry" />
     </mxCell>
     <mxCell id="manager_cancelled" parent="lane_manager" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#FFFFFF;strokeColor=#E74C3C;" value="Задание ОТМЕНЕНО" vertex="1">
-      <mxGeometry height="40" width="40" x="1070" y="65" as="geometry" />
+      <mxGeometry height="40" width="40" x="1030" y="65" as="geometry" />
     </mxCell>
     <mxCell id="manager_inwork_data" parent="lane_manager" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Задание&#xa;Статус: В РАБОТЕ" vertex="1">
       <mxGeometry height="45" width="100" x="495" y="130" as="geometry" />
@@ -75,6 +75,12 @@
     </mxCell>
     <mxCell id="ejGMhtoU5VwSWVP530ry-2" parent="lane_manager" style="rhombus;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Отправить или отменить?&lt;/span&gt;" vertex="1">
       <mxGeometry height="80" width="80" x="400" y="35" as="geometry" />
+    </mxCell>
+    <mxCell id="end_event" parent="lane_manager" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=3;fillColor=#FFFFFF;strokeColor=#C0392B;" value="КОНЕЦ" vertex="1">
+      <mxGeometry height="50" width="50" x="1240" y="71.25" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_manager_cancel_to_end" edge="1" parent="lane_manager" source="manager_cancelled" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="end_event">
+      <mxGeometry relative="1" as="geometry" />
     </mxCell>
     <mxCell id="lane_office" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#2ECC71;" value="Управляющий офисом" vertex="1">
       <mxGeometry height="230" width="1320" y="220" as="geometry" />
@@ -161,7 +167,7 @@
       <mxGeometry height="65" width="60" x="410" y="50" as="geometry" />
     </mxCell>
     <mxCell id="lane_hr" parent="pool" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;startSize=30;horizontal=0;rounded=0;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#E74C3C;" value="Специалист HR" vertex="1">
-      <mxGeometry height="180" width="1320" y="450" as="geometry" />
+      <mxGeometry height="225" width="1320" y="450" as="geometry" />
     </mxCell>
     <mxCell id="hr_receive" parent="lane_hr" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Получить заявку&#xa;на подбор" vertex="1">
       <mxGeometry height="50" width="120" x="80" y="40" as="geometry" />
@@ -169,8 +175,14 @@
     <mxCell id="hr_data_request" parent="lane_hr" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Заявка на подбор&#xa;Статус: ОТКРЫТА" vertex="1">
       <mxGeometry height="45" width="110" x="90" y="120" as="geometry" />
     </mxCell>
+    <mxCell id="6CnH06ISqbkh3XfKq2Uo-3" edge="1" parent="lane_hr" source="hr_search" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="6CnH06ISqbkh3XfKq2Uo-1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
     <mxCell id="hr_search" parent="lane_hr" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Найти&#xa;специалиста" vertex="1">
       <mxGeometry height="50" width="120" x="240" y="40" as="geometry" />
+    </mxCell>
+    <mxCell id="6CnH06ISqbkh3XfKq2Uo-4" edge="1" parent="lane_hr" source="hr_add" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="6CnH06ISqbkh3XfKq2Uo-1">
+      <mxGeometry relative="1" as="geometry" />
     </mxCell>
     <mxCell id="hr_add" parent="lane_hr" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Добавить&#xa;в базу" vertex="1">
       <mxGeometry height="50" width="120" x="400" y="40" as="geometry" />
@@ -179,7 +191,7 @@
       <mxGeometry height="40" width="100" x="410" y="120" as="geometry" />
     </mxCell>
     <mxCell id="hr_close" parent="lane_hr" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ECF0F1;strokeColor=#2C3E50;fontSize=12;" value="Закрыть&#xa;заявку" vertex="1">
-      <mxGeometry height="50" width="120" x="910" y="40" as="geometry" />
+      <mxGeometry height="50" width="120" x="1070" y="110" as="geometry" />
     </mxCell>
     <mxCell id="hr_data_closed" parent="lane_hr" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FCF3CF;strokeColor=#F39C12;fontSize=11;fontStyle=1;" value="Заявка&#xa;Статус: ЗАКРЫТА" vertex="1">
       <mxGeometry height="45" width="100" x="680" y="120" as="geometry" />
@@ -212,6 +224,18 @@
     <mxCell id="ejGMhtoU5VwSWVP530ry-7" parent="lane_hr" style="rhombus;whiteSpace=wrap;html=1;" value="задание выполнено?" vertex="1">
       <mxGeometry height="70" width="70" x="560" y="55" as="geometry" />
     </mxCell>
+    <mxCell id="6CnH06ISqbkh3XfKq2Uo-1" parent="lane_hr" style="shape=datastore;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" value="" vertex="1">
+      <mxGeometry height="100" width="100" x="230" y="120" as="geometry" />
+    </mxCell>
+    <mxCell id="flow_office_history_to_end" edge="1" parent="pool" source="office_history" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="end_event">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="6CnH06ISqbkh3XfKq2Uo-5" edge="1" parent="pool" source="hr_close" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="office_receive">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="6CnH06ISqbkh3XfKq2Uo-6" edge="1" parent="pool" source="office_search" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="6CnH06ISqbkh3XfKq2Uo-1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
     <mxCell id="message_manager_to_office" edge="1" parent="1" source="manager_send" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#3498DB;endArrow=classicThin;endFill=1;startArrow=oval;startFill=1;dashed=1;fontSize=11;" target="office_receive" value="Задание отправлено">
       <mxGeometry relative="1" x="-1" y="69" as="geometry">
         <mxPoint x="60" y="-34" as="offset" />
@@ -229,18 +253,6 @@
           <mxPoint x="140" y="440" />
         </Array>
       </mxGeometry>
-    </mxCell>
-    <mxCell id="end_event" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=3;fillColor=#FFFFFF;strokeColor=#C0392B;" value="КОНЕЦ" vertex="1">
-      <mxGeometry height="50" width="50" x="1300" y="380" as="geometry" />
-    </mxCell>
-    <mxCell id="flow_manager_cancel_to_end" edge="1" parent="1" source="manager_cancelled" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="end_event">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-    <mxCell id="flow_office_history_to_end" edge="1" parent="1" source="office_history" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="end_event">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-    <mxCell id="flow_hr_close_to_end" edge="1" parent="1" source="hr_close" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;" target="end_event">
-      <mxGeometry relative="1" as="geometry" />
     </mxCell>
     <mxCell id="legend_roles" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;startSize=30;horizontal=0;rounded=1;fontSize=14;fontColor=#FFFFFF;strokeColor=#2C3E50;fillColor=#34495E;" value="РОЛИ:" vertex="1">
       <mxGeometry height="110" width="300" x="70" y="730" as="geometry" />
